@@ -1,0 +1,3 @@
+what is a static class in js 
+what is a static class function and value in a normal class
+look into haven on demand. has api for coding.
