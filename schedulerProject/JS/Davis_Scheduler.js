@@ -34,3 +34,28 @@ function newEvent(userName, ){
 
 
 }
+
+setAvailability(employees, myMap){
+      console.log("i entered my function");
+       for(let i = 0; i < employees.length; i++){                                               // loops through employees
+            for(let j = 0; j< employees[i].availability.length; j++){                           // loops through each employees availability
+            //console.log (employees[i].availability[j]["avail"]);
+                if(employees[i].availability[j]["avail"]){                               // if they are available enter loop
+                console.log(myMap.prototype.has(employees[i]["id"]));
+                   if (myMap.prototype.has(employees[i]["id"]))                               // if the map key does not exisit enter if.
+                   {
+                      //myMap.set(employees[i]["id"],employees[i].availability[j]["day"]);       // create a new map key
+                  console.log("inside if");
+                   }
+                   else
+                   {
+                      console.log("inside else");
+                   //var a = myMap.get(employees[i]["id"]);                                     // if the key already exisits then save the value to a
+                  // a += (" " + employees[i].availability[j]["day"]);       // add the previous value to the new availability and put a space between
+                   }
+               }
+            }
+       }
+       console.log("i am at bottom of setAvailability");
+       console.log(myMap);
+   }
