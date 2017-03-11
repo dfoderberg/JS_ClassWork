@@ -60,11 +60,11 @@ function newEvent(userName, ){
 //        console.log(myMap);
 //    }
 
-getUserData(){
-       App.getJSON("data/userData.json")
-            // getJSON is a promise that requires a then.  Need to initialize this, run function, and bind this data to this.
-            //   use catch to catch and display error if one occurs.
-           .then(this.setupUsersTable.bind(this)).catch(() => {
-               console.log('error occurred in getUserData');
-           });
-       }
+// getUserData(){
+//        App.getJSON("data/userData.json")
+//             // getJSON is a promise that requires a then.  Need to initialize this, run function, and bind this data to this.
+//             //   use catch to catch and display error if one occurs.
+//            .then(this.setupUsersTable.bind(this)).catch(() => {
+//                console.log('error occurred in getUserData');
+//            });
+//        }
