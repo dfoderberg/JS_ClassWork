@@ -1,3 +1,4 @@
 what is a static class in js 
 what is a static class function and value in a normal class
 look into haven on demand. has api for coding.
+look into setTimeout and setInterval https://developer.mozilla.org/en-US/Add-ons/Code_snippets/Timers
