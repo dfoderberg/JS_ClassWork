@@ -4,4 +4,3 @@ look into haven on demand. has api for coding.
 look into setTimeout and setInterval https://developer.mozilla.org/en-US/Add-ons/Code_snippets/Timers
 lesson 3.6 bind apply and call. when to use and why?
 what is the difference between https and http?
-practicing commiting 
