@@ -2,5 +2,7 @@ what is a static class in js
 what is a static class function and value in a normal class
 look into haven on demand. has api for coding.
 look into setTimeout and setInterval https://developer.mozilla.org/en-US/Add-ons/Code_snippets/Timers
+Answer^ = set timeout pushes code off the stack to the web API or Nodejs API and is run on a different thread. then it is given back to the event que and waits for the call stack to empty before running the code.
 lesson 3.6 bind apply and call. when to use and why?
 what is the difference between https and http?
+learn about ajax and ajax requests
