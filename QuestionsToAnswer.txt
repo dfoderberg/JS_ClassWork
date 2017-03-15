@@ -10,3 +10,8 @@ look up advanced sourcetree tools.
 look into js tests
 what is universal javascript
 what is the difference between redux and react
+delegates and singletons in javascript
+ember.js and crud
+graphQL
+classical inheritance and prototypal inheritance
+what is express and when should i use it
