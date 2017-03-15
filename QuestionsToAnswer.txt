@@ -15,3 +15,5 @@ ember.js and crud
 graphQL
 classical inheritance and prototypal inheritance
 what is express and when should i use it
+jquery why is it the most popular js library
+D3 and three.js
