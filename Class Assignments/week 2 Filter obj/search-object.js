@@ -22,11 +22,18 @@ var getFirstTenBooks = function() {
 function searchTitle(books, title, partial = true) {
     let searchedBooks = [];
     rExpression = new RegExp(title);
-    console.log(rExpression.toString());
+    //console.log(rExpression.toString());
+
+    console.log("\nStart of book titles\n");
     for (var i = 0; i < books.length; i++){
+        console.log(books[i].title);
         if (partial) // run code below if partial is true
         {
-           // rExpression = new RegExp("books");
+            rExpression = new RegExp(title);
+            if (books[i].title.match(rExpression) == title){
+                searchedBooks.push(books[i]);
+            }
+            
             
         }
 
@@ -38,6 +45,7 @@ function searchTitle(books, title, partial = true) {
             }
         }    
     }
+    console.log("\n end of book titles\n");
     return searchedBooks;
 }
 
@@ -48,4 +56,3 @@ function searchAuthor(books, title, partial = true) {
     
 }
 console.log(searchTitle(getFirstTenBooks, "Javascript", false));
-console.log(searchTitle())
