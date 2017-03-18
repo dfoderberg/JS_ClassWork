@@ -24,10 +24,10 @@ function searchTitle(books, title, partial = true) {
     rExpression = new RegExp(title);
     //console.log(rExpression.toString());
  
-    console.log("\nStart of book titles\n");
+   // console.log("\nStart of book titles\n");
     for (var i = 0; i < books.length; i++){
         //console.log("i made it here");
-        console.log(books[i]["title"] + " is title " + i);
+       // console.log(books[i]["title"] + " is title " + i);
         if (partial) // run code below if partial is true
         {
            
@@ -43,15 +43,15 @@ function searchTitle(books, title, partial = true) {
 
 
         else{  // run code below when partial is false
-            if (books[i]["title"].match(rExpression) == title){
+           // if (books[i]["title"].match(rExpression) == title){
                 if (books[i]["title"] === title){
                     console.log("book " + i + " passed match when partial is false");
                     searchedBooks.push(books[i]);  // adds the book to the array if the title is an exact match
                 }
-            }
+            //}
         }    
     }
-    console.log("\n end of book titles\n");
+   // console.log("\n end of book titles\n");
     return searchedBooks;
 }
 
@@ -60,34 +60,38 @@ function searchTitle(books, title, partial = true) {
  */
 function searchAuthor(books, author, partial = true) {
     let searchedBooks = [];
-    rExpression = new RegExp(title);
+    rExpression = new RegExp(author);
     //console.log(rExpression.toString());
  
-    console.log("\nStart of book titles\n");
+    //console.log("\nStart of book titles\n");
     for (var i = 0; i < books.length; i++){
         //console.log("i made it here");
-        console.log(books[i]["title"] + " is title " + i);
+        //console.log(books[i]["author"] + " is author " + i);
         if (partial) // run code below if partial is true
         {
-           
-            if (books[i]["title"].match(rExpression) == title){
+            for (name in books[i]["author_data"]){
+                console.log("authors name is ( " + books[i]["author_data"][name]["name"] + " ) !!!!! for book " + i);
+                if (books[i]["author_data"][name]["name"].match(rExpression) == author){
                 
-                console.log("book " + i + " passed match when partial is true");
-                searchedBooks.push(books[i]);
+                    console.log("book " + i + " passed match when partial is true");
+                    searchedBooks.push(books[i]);
                 
-            }
-                 
+                }
+            }  
         }
 
 
 
         else{  // run code below when partial is false
-            if (books[i]["title"].match(rExpression) == title){
-                if (books[i]["title"] === title){
-                    console.log("book " + i + " passed match when partial is false");
-                    searchedBooks.push(books[i]);  // adds the book to the array if the title is an exact match
+            //if (books[i]["author"].match(rExpression) == author){
+                for (name in books[i]["author_data"]){
+                    //console.log("here");
+                    if (books[i]["author_data"][name]["name"] === author){
+                        console.log("book " + i + " passed match when partial is false");
+                        searchedBooks.push(books[i]);  // adds the book to the array if the title is an exact match
+                    }
                 }
-            }
+            //}
         }    
     }
     //console.log("\n end of book titles\n");
@@ -95,10 +99,26 @@ function searchAuthor(books, author, partial = true) {
 
 }
 
-let x = (searchTitle(getFirstTenBooks(), "Javascript", true));
+// let x = (searchTitle(getFirstTenBooks(), "Javascript", true));
 
-for (a of x){
-    console.log( "\n title " + a["title"] + " passed the test");
+// for (i of x){
+//     console.log( "\n title " + i["title"] + " passed the test");
+// }
+
+let y = (searchAuthor(getFirstTenBooks(), "Elizabeth Gandy", false));
+
+for (i of y){
+    for (j of i["author_data"])
+    console.log( "\n author " + j["name"] + " passed the test");
 }
 
-
+// "author_data": [
+//       {
+//         "id": "elizabeth_gandy",
+//         "name": "Elizabeth Gandy"
+//       },
+//       {
+//         "name": "Stobart, Simon",
+//         "id": "stobart_simon"
+//       }
+//     ],
