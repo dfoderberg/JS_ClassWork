@@ -23,25 +23,31 @@ function searchTitle(books, title, partial = true) {
     let searchedBooks = [];
     rExpression = new RegExp(title);
     //console.log(rExpression.toString());
-
+ 
     console.log("\nStart of book titles\n");
     for (var i = 0; i < books.length; i++){
-        console.log(books[i].title);
+        //console.log("i made it here");
+        console.log(books[i]["title"] + " is title " + i);
         if (partial) // run code below if partial is true
         {
-            rExpression = new RegExp(title);
-            if (books[i].title.match(rExpression) == title){
+           
+            if (books[i]["title"].match(rExpression) == title){
+                
+                console.log("book " + i + " passed match when partial is true");
                 searchedBooks.push(books[i]);
+                
             }
-            
-            
+                 
         }
 
 
 
         else{  // run code below when partial is false
-            if (books[i].match(title) === title){
-                searchedBooks.push(books[i]);  // adds the book to the array if the title is an exact match
+            if (books[i]["title"].match(rExpression) == title){
+                if (books[i]["title"] === title){
+                    console.log("book " + i + " passed match when partial is false");
+                    searchedBooks.push(books[i]);  // adds the book to the array if the title is an exact match
+                }
             }
         }    
     }
@@ -55,4 +61,11 @@ function searchTitle(books, title, partial = true) {
 function searchAuthor(books, title, partial = true) {
     
 }
-console.log(searchTitle(getFirstTenBooks, "Javascript", false));
+
+let x = (searchTitle(getFirstTenBooks(), "Javascript", true));
+
+for (a of x){
+    console.log( "\n title " + a["title"] + " passed the test");
+}
+
+
