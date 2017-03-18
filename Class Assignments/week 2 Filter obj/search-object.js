@@ -58,8 +58,41 @@ function searchTitle(books, title, partial = true) {
 /** 
  * Return all books matching the author.
  */
-function searchAuthor(books, title, partial = true) {
-    
+function searchAuthor(books, author, partial = true) {
+    let searchedBooks = [];
+    rExpression = new RegExp(title);
+    //console.log(rExpression.toString());
+ 
+    console.log("\nStart of book titles\n");
+    for (var i = 0; i < books.length; i++){
+        //console.log("i made it here");
+        console.log(books[i]["title"] + " is title " + i);
+        if (partial) // run code below if partial is true
+        {
+           
+            if (books[i]["title"].match(rExpression) == title){
+                
+                console.log("book " + i + " passed match when partial is true");
+                searchedBooks.push(books[i]);
+                
+            }
+                 
+        }
+
+
+
+        else{  // run code below when partial is false
+            if (books[i]["title"].match(rExpression) == title){
+                if (books[i]["title"] === title){
+                    console.log("book " + i + " passed match when partial is false");
+                    searchedBooks.push(books[i]);  // adds the book to the array if the title is an exact match
+                }
+            }
+        }    
+    }
+    //console.log("\n end of book titles\n");
+    return searchedBooks;
+
 }
 
 let x = (searchTitle(getFirstTenBooks(), "Javascript", true));
