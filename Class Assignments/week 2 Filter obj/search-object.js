@@ -16,46 +16,35 @@ var getFirstTenBooks = function() {
         .slice(100, 110);
 }
 RegExp.escape= function(s) {
-   return s.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
+   return s.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');  // escapes wildcard special cases so that i can allow someone to enter a symbol into the author field
 };
 
 /** 
  * Return all books matching the title.
  */
 function searchTitle(books, title, partial = true) {
-    let searchedBooks = [];
-    rExpression = new RegExp(title);
+    let searchedBooks = [];  // creates an array that stores the filtered books.
+    rExpression = new RegExp(title);  // creates a regular expression that will let me sort for a title
     //console.log(rExpression.toString());
  
-   // console.log("\nStart of book titles\n");
-    for (var i = 0; i < books.length; i++){
-        //console.log("i made it here");
+    for (var i = 0; i < books.length; i++){ // iterate over the books array that was passed in
        // console.log(books[i]["title"] + " is title " + i);
-        if (partial) // run code below if partial is true
-        {
-           
-            if (books[i]["title"].match(rExpression) == title){
-                
+        if (partial){ // run code below if partial is true. partial checks for partial matches
+            if (books[i]["title"].match(rExpression) == title){  //if our title matches the books object title    
                 //console.log("book title" + i + " passed match when partial is true");
-                searchedBooks.push(books[i]);
-                
-            }
-                 
+                searchedBooks.push(books[i]); // add matched books to the array that we will return     
+            }        
         }
 
-
-
         else{  // run code below when partial is false
-           // if (books[i]["title"].match(rExpression) == title){
                 if (books[i]["title"] === title){
                     //console.log("book title" + i + " passed match when partial is false");
                     searchedBooks.push(books[i]);  // adds the book to the array if the title is an exact match
                 }
-            //}
         }    
     }
    // console.log("\n end of book titles\n");
-    return searchedBooks;
+    return searchedBooks;  // an array of books that had matching titles
 }
 
 /** 
@@ -64,34 +53,23 @@ function searchTitle(books, title, partial = true) {
 function searchAuthor(books, author, partial = true) {
     //console.log(author + " is the authors name?????");    
     let searchedBooks = [];
-    //if (author == "???") return searchedBooks;
-    rExpression = new RegExp(RegExp.escape(author));
-    //console.log(rExpression.toString());
-    
+    rExpression = new RegExp(RegExp.escape(author));   
  
-    //console.log("\nStart of book titles\n");
     for (var i = 0; i < books.length; i++){
-        //console.log("i made it here");
         //console.log(books[i]["author"] + " is author " + i);
         if (partial) // run code below if partial is true
         {
             for (array in books[i]["author_data"]){
                 //console.log("authors name is ( " + books[i]["author_data"][array]["name"] + " ) !!!!! for book " + i);
                 if (books[i]["author_data"][array]["name"].match(rExpression) == author){
-                
-                    //console.log("book author" + i + " passed match when partial is true");
-                    searchedBooks.push(books[i]);
-                
+                    searchedBooks.push(books[i]); // adds a book object to the array when the author name matches
                 }
             }  
         }
 
-
-
         else{  // run code below when partial is false
             //if (books[i]["author"].match(rExpression) == author){
                 for (array in books[i]["author_data"]){
-                    //console.log("here");
                     if (books[i]["author_data"][array]["name"] === author){
                         console.log("book author " + i + " passed match when partial is false");
                         searchedBooks.push(books[i]);  // adds the book to the array if the title is an exact match
@@ -105,7 +83,7 @@ function searchAuthor(books, author, partial = true) {
 
 }
 
-
+/* the lines of code below are for outputing the results of the search. */
 
 // let x = (searchTitle(getFirstTenBooks(), "Javascript", true));
 
@@ -114,20 +92,7 @@ function searchAuthor(books, author, partial = true) {
 // }
 
 let y = (searchAuthor(getFirstTenBooks(), "Paul Wilton", false));
-console.log(y);
 for (i of y){
     for (j of i["author_data"])
     console.log( "\n author " + j["name"] + " passed the test");
 }
-
-// "author_data": [
-//       {
-//         "id": "elizabeth_gandy",
-//         "name": "Elizabeth Gandy"
-//       },
-//       {
-//         "name": "Stobart, Simon",
-//         "id": "stobart_simon"
-//       }
-//     ],
-
