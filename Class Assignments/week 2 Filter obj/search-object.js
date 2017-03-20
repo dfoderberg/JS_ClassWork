@@ -96,3 +96,4 @@ for (i of y){
     for (j of i["author_data"])
     console.log( "\n author " + j["name"] + " passed the test");
 }
+// look into using the indexof string method instead of regular expressions

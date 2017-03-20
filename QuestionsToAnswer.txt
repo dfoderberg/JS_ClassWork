@@ -17,3 +17,5 @@ classical inheritance and prototypal inheritance
 what is express and when should i use it
 jquery why is it the most popular js library
 D3 and three.js
+how to use a linter
+what happens if i change folder names in a git repo
