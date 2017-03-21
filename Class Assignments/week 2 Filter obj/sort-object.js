@@ -61,7 +61,8 @@ for( let i = 0; i < checkArray.length; i++){
 * step 1 create a map storing the array position in key and number of strings smaller in the values
 * loop through an array comparing which value is larger. The larger string gets its value incremented
 * if strings are equal increment the value in the one with the larger array position.
-* then sort the array by the values stored matching the key that holds the array position. */
+* then sort the array by the values stored matching the key that holds the array position.
+*/
 
 
 /** 
@@ -72,3 +73,6 @@ for( let i = 0; i < checkArray.length; i++){
 function sortByAuthor(books, asc = true) {
     
 }
+/*
+* ['author_data']['name']
+*/
