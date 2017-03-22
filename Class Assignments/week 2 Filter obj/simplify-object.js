@@ -15,26 +15,24 @@
 var getFirstTenBooks = function() {
     return JSON.parse(
         require('fs').readFileSync(__dirname + '/../books.json', 'UTF8'))
-        .slice(0, 10);
+        .slice(100, 110);
 }
 
 /** 
  * Filter the inputted object for just the selected columns.
  */
-function filterColumns(books, columns = ['title', 'author_data']) {
-    storageArray = [];
-    console.log("help");
-    for (key in books){
-        let newObject = {};
-        console.log("here");
-        for (property in columns){
-            console.log("!!!!!");
-                newObject.property = books.property;
-                console.log(newObject.property);
-                console.log("????");
+function filterColumns(books, columns = ['title', 'author_data','edition_info', 'book_id']) {
+    storageArray = []; // store newly simplified objects here
+    for (bookObject of books){  // iterate through array of books to get individual objects
+        let newObject = {};  // a object to temporarily hold a fully simplified object 
+        //newObject.check = true;
+        for (property of columns){  // sort through each property tag in columns
+                newObject[property] = bookObject[property];  // add a new property to newObject with the data from books
+                //console.log(Object.keys(newObject)[1] + " is my newobject keys");
         }
         storageArray.push(newObject);
     }
+    return storageArray;
 }
 
 console.log(filterColumns(getFirstTenBooks()));

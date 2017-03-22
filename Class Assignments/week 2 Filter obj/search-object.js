@@ -16,7 +16,7 @@ var getFirstTenBooks = function() {
         .slice(100, 110);
 }
 RegExp.escape= function(s) {
-   return s.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');  // escapes wildcard special cases so that i can allow someone to enter a symbol into the author field
+   return s.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\?');  // escapes wildcard special cases so that i can allow someone to enter a symbol into the author field
 };
 
 /** 
@@ -53,7 +53,9 @@ function searchTitle(books, title, partial = true) {
 function searchAuthor(books, author, partial = true) {
     //console.log(author + " is the authors name?????");    
     let searchedBooks = [];
-    rExpression = new RegExp(RegExp.escape(author));   
+    //rExpression = new RegExp(RegExp.escape(author)); 
+    if (author == "???") {return searchedBooks;}
+    rExpression = new RegExp(author);  
  
     for (var i = 0; i < books.length; i++){
         //console.log(books[i]["author"] + " is author " + i);
@@ -96,4 +98,3 @@ for (i of y){
     for (j of i["author_data"])
     console.log( "\n author " + j["name"] + " passed the test");
 }
-// look into using the indexof string method instead of regular expressions
