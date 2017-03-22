@@ -23,12 +23,15 @@ var getFirstTenBooks = function() {
  */
 function filterColumns(books, columns = ['title', 'author_data']) {
     storageArray = [];
-    for (key of books){
+    console.log("help");
+    for (key in books){
         let newObject = {};
+        console.log("here");
         for (property in columns){
-                newObject = {
-                property : books.property
-            };
+            console.log("!!!!!");
+                newObject.property = books.property;
+                console.log(newObject.property);
+                console.log("????");
         }
         storageArray.push(newObject);
     }
