@@ -75,23 +75,23 @@ function sortByAuthor(books, asc = true) {
     sortingMap = new Map(); // create map called sortingMap
     for (let i = 0; i < books.length; i++){
         sortingMap.set(i, 0); // initalize map with all values and start all at values to 0
-        storeSort.push("error if outputed");  // creates an array of the right size storing a warning message that if not written over will help with debuging
+        storeSort.push("error if outputed");
     }
     for (let i = 0; i < books.length; i++){  // iterates through every book
         for (let j = (i+1); j < books.length; j++){  // iterates through books we want to check 
-            if (books[i]['author_data'] == undefined && books[j]['author_data'] == undefined){ // check for undefined authordata values
+            if (books[i]['author_data'] == undefined && books[j]['author_data'] == undefined){
                 
                 sortingMap.set(i, (sortingMap.get(i) + 1));  // increments the value of the key j by 1 when books[j] is >= to books[i]
             }
-            else if (books[i]["author_data"] == undefined){  // check for undefined values
+            else if (books[i]["author_data"] == undefined){
                 sortingMap.set(j, (sortingMap.get(j) + 1));
             }
             else if (books[j]["author_data"] == undefined){
                 sortingMap.set(i, (sortingMap.get(i) + 1));
             }
-            else if (!books[i]["author_data"].length)  // check for lengths of array data to be greater than 0.
+            else if (!books[i]["author_data"].length)
             {
-                sortingMap.set(j, (sortingMap.get(j) + 1));  // if 0 increment the opposite so that authorless are put early in the list.
+                sortingMap.set(j, (sortingMap.get(j) + 1));
             }
             else if (!books[j]["author_data"].length)
             {
@@ -129,7 +129,7 @@ for( let i = 0; i < check2Array.length; i++){
             {
                 console.log("authordata was empty for i")
             }
-        else console.log(check2Array[i]['author_data'][0]['name'] + "    is the author!!!");
+        else console.log(check2Array[i]['author_data'][0]['name'] + "!    is the author!!! " + i + " is i");
 }
 
 /*
