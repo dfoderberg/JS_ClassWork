@@ -47,15 +47,14 @@ function indexBySubject() {
 function readAndIndex(){
     let myMap = new Map();
     books = JSON.parse(require('fs').readFileSync(__dirname + '/../books.json', 'UTF8'))  // reads in file.
-    for(let i = 0; i < books.length; i++){
-        if (books[i].subject_ids){
-            for(let j = 0; j < books[i]["subject_ids"]; j++){
-                console.log("2nd for loop");
-                if(myMap.has[books[i].subject_ids[j]]){
-                    myMap[(books[i].subject_ids[j])].push(books[i]);
+    for(let i = 0; i < books.length; i++){   // iterates through objects
+        if (books[i].subject_ids != undefined){   // check if object has key dubject_ids
+            for(let j = 0; j < books[i]["subject_ids"].length; j++){ // iterates through array of subjects 
+                if(myMap.has[books[i].subject_ids[j]]){  // if subject exists
+                    myMap[(books[i].subject_ids[j])].push(books[i]);  // push a new book object onto array
                 }
                 else{
-                    myMap.set(books[i].subject_ids[j], [obj]);
+                    myMap.set(books[i].subject_ids[j], [books[i]]); // create a new key value for map (key=string, value = array of book objects) 
                 }
             }
         }
@@ -70,12 +69,17 @@ function readAndIndex(){
 
     //     }
     // }
-        
-
+    mapIter = myMap.values();
+    
+    console.log(mapIter.next().value);
+    console.log(mapIter.next().value);
+    console.log(mapIter.next().value);
+    console.log(mapIter.next().value);
+    
     return myMap;
 }
-console.log(readAndIndex());
-
+//console.log(readAndIndex());
+readAndIndex();
 module.exports = {
     readFiles: readFiles,
     indexBySubject: indexBySubject,
