@@ -27,7 +27,8 @@ function filterColumns(books, columns = ['title', 'author_data','edition_info', 
         let newObject = {};  // a object to temporarily hold a fully simplified object 
         //newObject.check = true;
         for (property of columns){  // sort through each property tag in columns
-                newObject[property] = bookObject[property];  // add a new property to newObject with the data from books
+                newObject[property] = bookObject[property] || console.log("bookObject " + property + "is undefined");  
+                // add a new property to newObject with the data from books, if its undefined console.log an error message
                 //console.log(Object.keys(newObject)[1] + " is my newobject keys");
         }
         storageArray.push(newObject);
