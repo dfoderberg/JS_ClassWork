@@ -59,7 +59,7 @@ class ImageSearch {
      * inputted keyword.
      */
     search(keyword) {
-        let searchURL = ("http://api.flickr.com/services/rest/?method=flickr.photos.search&format=json&api_key=d103d9be76c00510e3738c283338125e&text=waterfall"); // this URL is used to access the flikr api. 
+        let searchURL = ("http://api.flickr.com/services/rest/?method=flickr.photos.search&format=json&api_key=d103d9be76c00510e3738c283338125e&text=waterfall"); // this URL is used to access the flikr api. the api should return a json with the information to pull up individual photos.
 
 
          this.network(searchURL, urlCALLBACK)
