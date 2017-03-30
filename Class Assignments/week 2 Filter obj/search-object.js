@@ -16,7 +16,7 @@ var getFirstTenBooks = function() {
         .slice(100, 110);
 }
 RegExp.escape= function(s) {
-   return s.replace(/?/g, 'Q');  // escapes wildcard special cases so that i can allow someone to enter a symbol into the author field
+   return s.replace(/?/g, 'Q');  //  replaces all ? with Q
 };
 
 /** 
