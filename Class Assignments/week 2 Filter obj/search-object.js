@@ -24,7 +24,7 @@ RegExp.escape= function(s) {
  */
 function searchTitle(books, title, partial = true) {
     let searchedBooks = [];  // creates an array that stores the filtered books.
-    rExpression = new RegExp(title);  // creates a regular expression that will let me sort for a title
+    let rExpression = new RegExp(title);  // creates a regular expression that will let me sort for a title
     //console.log(rExpression.toString());
  
     for (var i = 0; i < books.length; i++){ // iterate over the books array that was passed in
@@ -54,8 +54,8 @@ function searchAuthor(books, author, partial = true) {
     //console.log(author + " is the authors name?????");    
     let searchedBooks = [];
     //rExpression = new RegExp(RegExp.escape(author)); 
-    if (author == "???") {return searchedBooks;}
-    rExpression = new RegExp(author);  
+    let author_fixed = RegExp.escape(author);  // should escape ? in authors name
+    let rExpression = new RegExp(author);  
  
     for (var i = 0; i < books.length; i++){
         //console.log(books[i]["author"] + " is author " + i);
