@@ -19,3 +19,4 @@ jquery why is it the most popular js library
 D3 and three.js
 how to use a linter
 what happens if i change folder names in a git repo
+what is a basic crud setup?
