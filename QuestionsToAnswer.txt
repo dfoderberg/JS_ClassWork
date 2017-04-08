@@ -21,3 +21,5 @@ how to use a linter
 what happens if i change folder names in a git repo
 what is a basic crud setup?
 how do i add a functionality to a prexisting website that is not my own?
+what is a bluemix instance
+what is an azure instance how do i use these 2 things
