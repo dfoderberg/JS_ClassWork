@@ -24,3 +24,4 @@ how do i add a functionality to a prexisting website that is not my own?
 what is a bluemix instance
 what is an azure instance how do i use these 2 things
 learn about procfiles and how they are used with webservers.
+look into the grid systems that was in slack and google more about it
