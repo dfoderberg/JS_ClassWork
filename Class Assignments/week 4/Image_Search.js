@@ -75,9 +75,31 @@ class ImageSearch {
      * ID.  You should collect the largest available photo.
      */
     getFlickrPhoto(id) {
-        // let IdPromose = new Promise((resolve, reject) => {
-        //     // use the id to get the contents of photo.
-        // }
+ return new Promise((resolve, reject) => {
+
+
+            var options = {
+                method: 'GET',
+                url: 'https://api.flickr.com/services/rest',
+                qs:
+                {
+                    method: 'flickr.photos.getSizes',
+                    api_key: 'd103d9be76c00510e3738c283338125e',
+                    photo_id: id,
+                }
+            };
+
+            function callback(error, response, body) {
+                if (error) {
+                    reject(error);
+                }
+                console.log(body);
+                resolve(body);
+                
+            }
+
+            request(options, callback)   
+        })
     }
 
     /**
@@ -121,7 +143,7 @@ class ImageSearch {
 
             function callback(error, response, body) {
                 if (error) {
-                    throw new Error(error);
+                    reject(error);
                 }
                 console.log(body);
                 resolve(body);
@@ -134,43 +156,6 @@ class ImageSearch {
 
 
 
-var PromiseLike = function(fn) {
-    var resolve, resolved, resolvedArgs, reject;
-    var thenFns = [];
-    resolve = function() {
-        if (resolved) {
-            return;
-        }
-        resolvedArgs = arguments;
-        resolved = true;
-        for (let thenFn of thenFns) {
-            thenFn(...arguments);
-        }
-    }
-    fn(resolve, reject);
-    var self = this;
-    return {
-        then: function(thenFn) {
-            if (resolved) {
-                thenFn(...resolvedArgs)
-            }
-            thenFns.push(thenFn);
-            return self;
-        },
-        catch: function(catchFn) {
-            return self;
-        }
-    }
-}
-new PromiseLike(function(resolve, reject) {
-    if (err) {
-        reject();
-    } else {
-        resolve(1);
-    }
-}).then((data) => {
-}).catch((err) => {
-});
 
 
 /**
@@ -189,5 +174,8 @@ storeFile(filename, contents) {
 }
 let images = new ImageSearch();
 
-images.search("waterfall");
+//images.search("waterfall");
+console.log("\n\n\n\n\n\n");
+images.getFlickrPhoto(33802530890);
+console.log("\n\n\n\n\n\n");
 module.exports = ImageSearch;
