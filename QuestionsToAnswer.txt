@@ -26,3 +26,4 @@ what is an azure instance how do i use these 2 things
 learn about procfiles and how they are used with webservers.
 look into the grid systems that was in slack and google more about it
 look up videos to understand " this " in javascript 
+coveralls is used to test code coverage
