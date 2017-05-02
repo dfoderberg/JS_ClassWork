@@ -30,3 +30,5 @@ coveralls is used to test code coverage to make sure that your code is tested
 travis-ci is used to test code as it is pushed to git to control reliability
 Learn how to test code with book "How to Break Software"
 read up on http protocol
+create a cooking app that will use recipe data to give metrics on how to make a new recipe
+create a google docs add on that allows live code sharing. it should also have an abillity to create file hierarchy with correct file types from the code folder
