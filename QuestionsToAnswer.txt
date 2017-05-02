@@ -28,3 +28,5 @@ look into the grid systems that was in slack and google more about it
 look up videos to understand " this " in javascript 
 coveralls is used to test code coverage to make sure that your code is tested
 travis-ci is used to test code as it is pushed to git to control reliability
+Learn how to test code with book "How to Break Software"
+read up on http protocol
